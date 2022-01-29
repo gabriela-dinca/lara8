@@ -29,7 +29,7 @@ class Post
                     $doc->date,
                     $doc->body()
                 ))
-                ->sortByDesc('date');
+                ->sortByDesc('date')
         );
     }
 
