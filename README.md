@@ -10,8 +10,9 @@ https://github.com/laracasts/Laravel-From-Scratch-HTML-CSS
 # Commands
 ```bash
 # Running Artisan commands locally...
-$ php artisan queue:work
+$ ./vendor/bin/sail composer require ...
+$ ./vendor/bin/sail artisan queue:work
 
 # Running Artisan commands within Laravel Sail...
-$ sail artisan queue:work
+$ ./vendor/bin/sail artisan queue:work
 ```
