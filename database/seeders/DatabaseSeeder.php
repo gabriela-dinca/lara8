@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'My First Post',
             'slug' => 'my-first-post',
             'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et varius massa, vel maximus odio. Maecenas tempus purus sed finibus rhoncus. Aliquam maximus quam a lectus iaculis, a fermentum neque luctus. Nulla sollicitudin eu lacus eu eleifend. Maecenas placerat ex fermentum, molestie nibh ut, auctor nunc. '
+            'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et varius massa, vel maximus odio. Maecenas tempus purus sed finibus rhoncus. Aliquam maximus quam a lectus iaculis, a fermentum neque luctus. Nulla sollicitudin eu lacus eu eleifend. Maecenas placerat ex fermentum, molestie nibh ut, auctor nunc.</p>'
         ]);
         Post::create([
             'user_id' => $user->id,
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'My Second Post',
             'slug' => 'my-second-post',
             'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et varius massa, vel maximus odio. Maecenas tempus purus sed finibus rhoncus. Aliquam maximus quam a lectus iaculis, a fermentum neque luctus. Nulla sollicitudin eu lacus eu eleifend. Maecenas placerat ex fermentum, molestie nibh ut, auctor nunc. '
+            'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et varius massa, vel maximus odio. Maecenas tempus purus sed finibus rhoncus. Aliquam maximus quam a lectus iaculis, a fermentum neque luctus. Nulla sollicitudin eu lacus eu eleifend. Maecenas placerat ex fermentum, molestie nibh ut, auctor nunc.</p>'
         ]);
     }
 }
