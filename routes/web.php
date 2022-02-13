@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', static fn () =>
-    view('posts', ['posts' => Post::with('category')->get()])
+    view('posts', ['posts' => Post::latest('published_at')->with('category')->get()])
 );
 
 Route::get('/posts/{post:slug}', static fn (Post $post)  =>
@@ -20,10 +20,11 @@ Route::get('/categories/{category:slug}', static fn (Category $category)  =>
         'posts' => $category->posts
     ])
 );
-
-Route::get('/authors/{user:id}', static fn (User $user)  =>
-view('posts', [
-    'posts' => $user->posts
-])
-);
+//
+//Route::get('/authors/{author:username}', static function (User $author) {
+//    $author->load('posts.author');
+//    return view('posts', [
+//        'posts' => $author->posts()
+//    ]);
+//});
 

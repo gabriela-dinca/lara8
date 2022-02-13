@@ -1,10 +1,15 @@
 @extends('layout')
 @section('content')
-    <p> By <a href="/authors/{{ $post->user->id }}">{{ $post->user->name }}</a>
-        <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
-    </p>
     <article>
         <h1>{{ $post->title }}</h1>
+        <p>
+            By <a href="/authors/{{ $post->author->username }}">
+                {{ $post->author->first_name }} {{ $post->author->last_name }}
+            </a> in
+            <a href="/categories/{{ $post->category->slug }}">
+                {{ $post->category->name }}
+            </a>
+        </p>
         <p>{!! $post->body !!}</p>
     </article>
     <a href="/">Go Back</a>

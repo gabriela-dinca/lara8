@@ -12,7 +12,7 @@ class PostFactory extends Factory
     /**
      * Define the model's default state
      */
-    #[ArrayShape(['user_id' => Factory::class, 'category_id' => Factory::class, 'title' => "string", 'slug' => "string", 'excerpt' => "string", 'body' => "string"])]
+    #[ArrayShape(['user_id' => Factory::class, 'category_id' => Factory::class, 'title' => "string", 'slug' => "string", 'excerpt' => "string", 'body' => "string", 'published_at' => \DateTime::class])]
     public function definition(): array {
          return [
             'user_id' => User::factory(),
@@ -21,6 +21,7 @@ class PostFactory extends Factory
             'slug' => $this->faker->slug,
             'excerpt' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
+            'published_at' => $this->faker->dateTime
         ];
     }
 }
