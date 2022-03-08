@@ -25,7 +25,7 @@ class Post extends Model
         );
 
         $query->when($filters['category'] ?? false, fn($query, $categorySlug) =>
-            $query->whereHas('category_id', fn($query) =>
+            $query->whereHas('category', fn($query) =>
                 $query->where('slug', $categorySlug)
             )
         );
