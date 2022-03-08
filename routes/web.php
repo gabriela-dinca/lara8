@@ -5,12 +5,22 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', static fn () =>
-    view('posts', [
-        'posts' => Post::latest('published_at')->with(['category', 'author'])->get(),
+Route::get('/', static function () {
+
+    $posts = Post::latest('published_at')->with(['category', 'author']);
+
+    if (request('search')){
+        $posts
+            ->where('title', 'like', '%'.request('search').'%')
+            ->orWhere('body', 'like', '%'.request('search').'%');
+    }
+
+    return view('posts', [
+        'posts' => $posts->get(),
         'categories' => Category::all()
-    ])
-);
+    ]);
+}
+)->name('home');
 
 Route::get('/posts/{post:slug}', static fn (Post $post)  =>
      view('post', [
