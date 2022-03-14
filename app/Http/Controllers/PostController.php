@@ -15,7 +15,11 @@ class PostController extends Controller
     public function index(): Factory|View|Application
     {
         return view('posts.index', [
-            'posts' => Post::latest('published_at')->filter(request(['search', 'category', 'author']))->with(['category', 'author'])->get()
+            'posts' => Post::latest('published_at')->filter(
+                request(['search', 'category', 'author'])
+            )->with([
+                'category', 'author'
+            ])->paginate(6)->withQueryString()
         ]);
     }
 
