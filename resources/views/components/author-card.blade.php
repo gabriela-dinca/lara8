@@ -4,8 +4,8 @@
     <img src="/images/lary-avatar.svg" alt="Lary avatar">
     <div class="ml-3">
         <h5 class="font-bold">
-            <a href="/authors/{{ $author->username }}">
-                {{ $author->firstname }} {{ $author->lastname }}
+            <a href="/?author={{ $author->username }}">
+                {{ $author->first_name }} {{ $author->last_name }}
             </a>
         </h5>
         {{--todo --}}

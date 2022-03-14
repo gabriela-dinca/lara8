@@ -15,13 +15,13 @@ class PostController extends Controller
     public function index(): Factory|View|Application
     {
         return view('posts.index', [
-            'posts' => Post::latest('published_at')->filter(request(['search', 'category']))->with(['category', 'author'])->get()
+            'posts' => Post::latest('published_at')->filter(request(['search', 'category', 'author']))->with(['category', 'author'])->get()
         ]);
     }
 
     public function show(Post $post): Factory|View|Application
     {
-        return view('post.show', [
+        return view('posts.show', [
             'post' => $post,
             'categories' => Category::all()
         ]);
