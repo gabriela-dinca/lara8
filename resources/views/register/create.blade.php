@@ -9,17 +9,41 @@
 
                 <div class="mb-6">
                     <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                        for="name"
+                        for="first_name"
                     >
-                        Name
+                        Firstname
                     </label>
 
                     <input class="border border-gray-400 p-2 w-full"
                         type="text"
-                        name="name"
-                        id="name"
+                        name="first_name"
+                        id="first_name"
+                        value="{{ old('first_name') }}"
                         required
                     >
+
+                    @error('first_name')
+                        <p class="text-red-400 text-xs mt-1">{{ $message  }}</p>
+                    @enderror
+                </div>
+
+                <div class="mb-6">
+                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                        for="last_name"
+                    >
+                        Lastname
+                    </label>
+
+                    <input class="border border-gray-400 p-2 w-full"
+                        type="text"
+                        name="last_name"
+                        id="last_name"
+                        value="{{ old('last_name') }}"
+                        required
+                    >
+                    @error('last_name')
+                        <p class="text-red-400 text-xs mt-1">{{ $message  }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
@@ -33,8 +57,12 @@
                         type="text"
                         name="username"
                         id="username"
+                        value="{{ old('username') }}"
                         required
                     >
+                    @error('username')
+                    <p class="text-red-400 text-xs mt-1">{{ $message  }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
@@ -48,8 +76,12 @@
                         type="email"
                         name="email"
                         id="email"
+                        value="{{ old('email') }}"
                         required
                     >
+                    @error('email')
+                        <p class="text-red-400 text-xs mt-1">{{ $message  }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
@@ -65,6 +97,9 @@
                         id="password"
                         required
                     >
+                    @error('password')
+                    <p class="text-red-400 text-xs mt-1">{{ $message  }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">

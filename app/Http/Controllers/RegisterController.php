@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Validation\Rule;
 
 
 class RegisterController extends Controller
@@ -18,9 +19,10 @@ class RegisterController extends Controller
     public function store()
     {
         $attributes = request()?->validate([
-            'name' => 'required|max:255',
-            'username' => 'required|min:3|max:255',
-            'email' => 'required|email|max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'username' => ['required', 'min:3', 'max:225', Rule::unique('users', 'username')],
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:7|max:255'
         ]);
 
