@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\Validation\Rule;
 
 
@@ -16,7 +18,7 @@ class RegisterController extends Controller
         return view('register.create');
     }
 
-    public function store()
+    public function store(): Redirector|Application|RedirectResponse
     {
         $attributes = request()?->validate([
             'first_name' => 'required|max:255',
